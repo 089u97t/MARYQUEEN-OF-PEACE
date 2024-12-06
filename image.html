@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Reveal Section</title>
+  <link rel="stylesheet" href="mary.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    section {
+      padding: 100px 20px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    
+    .navbar {
+  background-color: #18356a;
+  color: #090707;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-list {
+  background-color: #18356a;
+  color: #090707;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.logo{
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInRightBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-2000px, 0, 0);
+  transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInRightBig {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(-2000px, 0, 0);
+  transform: translate3d(-2000px, 0, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  } 
+.logo a {
+  padding-left: 90px;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.nav-links {
+  list-style: none;
+  padding: -1;
+  margin: -1;
+  display: flex;
+  cursor: pointer;
+}
+
+.nav-links li {
+  margin-right: 1vw;
+}
+
+.nav-links li a {
+  color: #0f0d0d;
+  text-decoration: black;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px;
+}
+
+
+svg {
+	font-family: "Russo One", sans-serif;
+	width: 100%; height: 100%;
+}
+svg text {
+	animation: stroke 5s infinite alternate;
+	stroke-width: 2;
+	stroke: #010812;
+	font-size: 100px;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(4, 7, 11, 0.998); stroke: rgb(9, 9, 9);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(3, 7, 10, 0.908); stroke: rgb(3, 3, 3); }
+	80%  {fill: rgb(3, 4, 6); stroke: rgb(5, 6, 5); stroke-width: 3; }
+	100% {
+		fill: rgb(9, 9, 10); stroke: rgb(8, 9, 10);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
+
+.wrapper {background-color: #FFFFFF};
+
+    p {
+      color: red;
+    }
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: #18356a;
+      padding: 20px 0;
+      text-align: center;
+      transition: 0.3s ease-in-out;
+  }
+  
+
+  .nav-links.show {
+      display: flex;
+  }
+
+  .nav-links li {
+      margin: 10px 0;
+  }
+
+  .hamburger {
+      display: flex;
+  }
+  .navbar{
+    position: fixed;
+    
+  }
+} 
+a{
+  text-decoration: none;
+  color: #000;
+}
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    }
+
+    .button-container {
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 2s ease-out, transform 2s ease-out;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      color: #ffffff;
+      background-color: #00ff88;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    button:hover {
+      box-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88;
+    }
+
+    img {
+      max-width: 300px;
+      opacity: 0;
+      transform: rotate(-20deg) scale(0.5);
+      transition: opacity 2.5s ease-out, transform 2.5s ease-out;
+    }
+
+    /* Reveal animations */
+    .reveal-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-paragraph {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-button {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .reveal-image {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+        <div class="logo1">
+          
+            <a href="#"> <img src=".vscode\image\letter-b (1).png" alt="png"></a>
+        </div>
+       
+        <ul class="nav-links">
+              
+              <!-- <input type="text" placeholder="search" name="text" class="input">
+              <svg></svg> -->
+              
+             
+                  <li><a href="music.html">music</a></li>
+                  <li><a href="document.html">document</a></li>
+                  <li><a href="scripts.html">scripts</a></li>
+                  <li><a href="event.html">Event</a></li>
+                  <li><a href="image.html">Images</a></li>
+                  <li><a href="liturgy.html">liturgy</a></li>
+                  <li><a href="support.html">support</a></li>
+                  <li><a href="video.html">video </video></a></li>
+                 
+        </ul>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+    <div id="home" style="margin-left: 4vw;">
+        <div class="hero-content">
+            <div class="text">
+                <h1>Welcome To </h1>
+                <h1 class="wrapper" style="color: #000;">
+                  <svg>
+                    <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                     MARY <br> QUEEN OF PEACE
+                    </text>
+                  </svg>
+                </h1>
+                <h1><B>CHOIR</B></h1>
+                <p>A <span>CREATIVE </span> society<br> passionate in singing for the lord.</p>
+                <p>Let's come togeether and sing unto the LORD!</p>
+                <a href="login.html" class="animated-button">Sign-up/Sign-in</a>
+            </div>
+            <div class="graphic">
+               <!-- Eye-catching graphics can be placed here -->
+                <img  src="4497.jpg" alt="Graphic">
+            </div>
+        </div>
+    </div>
+</header>
+  <section id="scroll-section">
+    <h2 class="hidden">Futuristic Design in Action</h2>
+    <p class="hidden">Experience the next-level scroll animations where every element reacts differently to your scroll action.</p>
+    <div class="button-container hidden">
+      <button>Get Started</button>
+    </div>
+    <img class="hidden" src="4497.jpg" alt="Futuristic Image">
+  </section>
+  <script src="mary.js">const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });</script>
+  <script>
+    // Scroll reveal function
+    function reveal() {
+      const header = document.querySelector('h2');
+      const paragraph = document.querySelector('p');
+      const button = document.querySelector('.button-container');
+      const image = document.querySelector('hidden');
+
+      const windowHeight = window.innerHeight;
+      const headerTop = header.getBoundingClientRect().top;
+      const paragraphTop = paragraph.getBoundingClientRect().top;
+      const buttonTop = button.getBoundingClientRect().top;
+      const imageTop = image.getBoundingClientRect().top;
+
+      const elementVisible = 150;
+
+      if (headerTop < windowHeight - elementVisible) {
+        header.classList.add('reveal-text');
+      }
+
+      if (paragraphTop < windowHeight - elementVisible) {
+        paragraph.classList.add('reveal-paragraph');
+      }
+
+      if (buttonTop < windowHeight - elementVisible) {
+        button.classList.add('reveal-button');
+      }
+
+      if (imageTop < windowHeight - elementVisible) {
+        image.classList.add('reveal-image');
+      }
+    }
+
+    window.addEventListener('scroll', reveal);
+  </script>
+
+</body>
+</html>

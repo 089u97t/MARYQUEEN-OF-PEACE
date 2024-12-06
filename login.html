@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register and Landing Page</title>
+    <link rel="stylesheet" href="mary.css">   
+     <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #00ff9c;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00cc76;
+        }
+
+        #loginForm, #registerForm {
+            display: none;
+        }
+
+        #landingPage {
+            display: none;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #welcomeMessage {
+            font-size: 30px;
+            color: #00ff9c;
+        }
+
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ff9c;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="authSection" class="container">
+        <div class="form-container">
+            <h2>Welcome to M.Q.P</h2>
+
+            <!-- Login Form -->
+            <div id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Enter username" required><br>
+              
+                <input type="password" id="loginPassword" placeholder="Enter password" required><br>
+                
+                <button onclick="login()">Login</button>
+                <p id="loginMessage" class="message"></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm">
+                <input type="text" id="regUsername" placeholder="Enter username" required><br>
+                <input type="society" id="society" placeholder="Enter society" required><br>
+                <input type="email" id="email" placeholder="Enter email" required><br>
+                <input type="password" id="regPassword" placeholder="Enter password" required><br>
+              <button onclick="register()">Register</button>
+                <p id="registerMessage" class="message"></p>
+            </div>
+
+            <p>
+                <a href="#" onclick="showLoginForm()" style="color: #fff;">Already have an account? Login here</a>
+                <br>
+                <a href="#" onclick="showRegisterForm()" style="color: #fff;">Don't have an account? Register here</a>
+            </p>
+            
+        </div>
+    </div>
+    <div  id="landingPage" class="container">
+        <h1 id="welcomeMessage"></h1>
+        <a href="maryqueenof peace.html" style="text-decoration: none;"> 
+            <h1 class="wrapper" style="color: #00cc76;">
+            
+             <span style="color: white;"> TO MARY </span> <br> QUEEN OF PEACE
+              <br>
+              <h2 style="text-decoration: none; color: white; ">To continue means you agree to the following rules below</h2><br>
+              <a href="" style="color: #00cc76;">terms-of-use</a> <br>
+              <a href="" style="color: #00cc76;">privacy-policy</a><br>
+            <button class="animated-button"><a href="maryqueenof peace.html"  style="color: black; text-decoration: none;">continue</a></button>
+          </h1>
+        
+    </div>
+    <!-- Landing Page -->
+   
+    <script src="mary.js"></script>
+    <script>
+        // Data storage for registered users
+        let users = [];
+        let loggedInUser = null;
+
+        // Function to show login form
+        function showLoginForm() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            clearMessages();
+        }
+
+        // Function to show register form
+        function showRegisterForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            clearMessages();
+        }
+
+        // Register function
+        function register() {
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+
+            // Validate form
+            if (username === '' || password === '') {
+                document.getElementById('registerMessage').innerText = "Please fill in all fields!";
+                return;
+            }
+
+            // Check if the user already exists
+            if (users.some(user => user.username === username)) {
+                document.getElementById('registerMessage').innerText = "Username already taken!";
+                return;
+            }
+
+            // Register the user
+            users.push({ username, password });
+            document.getElementById('registerMessage').innerText = "Registration successful!";
+            document.getElementById('regUsername').value = '';
+            document.getElementById('regPassword').value = '';
+
+            // Automatically log the user in
+            loggedInUser = { username, password };
+            showLandingPage();
+        }
+
+        // Login function
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Validate form
+            if (username === '' || password === '') {
+                document.getElementById('loginMessage').innerText = "Please fill in all fields!";
+                return;
+            }
+
+            // Authenticate the user
+            const user = users.find(user => user.username === username && user.password === password);
+            if (user) {
+                loggedInUser = user;
+                showLandingPage();
+            } else {
+                document.getElementById('loginMessage').innerText = "Incorrect username or password!";
+            }
+        }
+
+        // Function to display the landing page
+        function showLandingPage() {
+            document.getElementById('authSection').style.display = 'none';
+            document.getElementById('landingPage').style.display = 'block';
+            document.getElementById('welcomeMessage').innerText = `Welcome, ${loggedInUser.username}!;`
+        }
+
+        // Clear messages function
+        function clearMessages() {
+            document.getElementById('loginMessage').innerText = '';
+            document.getElementById('registerMessage').innerText = '';
+        }
+
+        // Initially show the login form
+        showLoginForm();
+    </script>
+</body>
+</html>
