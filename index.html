@@ -19,203 +19,174 @@
             color: #333;
             line-height: 1.6;
         }
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Header Section */
-        header.hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: linear-gradient(to bottom right, #ffffff, #e6e6e6);
-            overflow: hidden;
-        }
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
 
-        /* Navigation Bar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #0a0a0a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .logo1 img {
-            max-width: 50px;
-            height: auto;
-        }
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+.navbar .logo1 a {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        .nav-links li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-        .nav-links li a:hover {
-            color: #ff5722;
-        }
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
+.nav-links a:hover {
+    color: #f5a623;
+}
 
-        .hamburger .line {
-            width: 30px;
-            height: 3px;
-            background: #333;
-        }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
 
-        /* Hero Section */
-        .hero-content {
-            margin-top: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
-            height: 80%;
-        }
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
 
-        .hero-content .text {
-            max-width: 50%;
-        }
+/* Scroll Reveal and Cursor Lighting */
+.scroll-reveal {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
 
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #333;
-        }
+.animated-button {
+    background-color: #f5a623;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-        .hero-content h1.wrapper {
-            color: #ff5722;
-        }
+.animated-button:hover {
+    background-color: #f39c12;
+}
 
-        .hero-content h1 b {
-            color: #ff5722;
-        }
+/* Planet Rotation Background */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('planet.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: planetRotation 60s linear infinite;
+    z-index: -1;
+}
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #666;
-        }
+/* Animations */
+@keyframes planetRotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
-        .hero-content p span {
-            color: #ff5722;
-            font-weight: bold;
-        }
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+    }
 
-        .animated-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff5722;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .hamburger {
+        display: flex;
+    }
 
-        .animated-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
-        /* Hero Graphic */
-        .graphic {
-            position: relative;
-            max-width: 50%;
-            display: flex;
-            justify-content: center;
-        }
+/* Text animation */
+.wrapper {
+    animation: wrapperText 3s ease-out forwards;
+}
 
-        .graphic img {
-            width: 80%;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out;
-        }
+@keyframes wrapperText {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
-        .graphic img:hover {
-            transform: scale(1.05);
-        }
+/* Cursor lighting */
+body {
+    cursor: pointer;
+    position: relative;
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
+body::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f5a623;
+    pointer-events: none;
+    transition: transform 0.1s ease, opacity 0.2s ease;
+}
 
-            .hero-content .text,
-            .graphic {
-                max-width: 100%;
-            }
-
-            .graphic img {
-                width: 90%;
-            }
-
-            .navbar {
-                padding: 10px 20px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 70px;
-                right: 0;
-                background: #fff;
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-                display: none;
-            }
-
-            .nav-links.open {
-                display: flex;
-            }
-        }
-
-        /* Cursor Lighting Effect */
-        body::before {
-            content: '';
-            position: fixed;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, rgba(163, 9, 9, 0.8), transparent);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
-            z-index: 1000;
-        }
-
-        body:hover::before {
-            background: radial-gradient(circle, #ff5722, transparent);
-        }
-
+body:hover::after {
+    transform: scale(1.5);
+    opacity: 0.7;
+}
 
         /* About Section Styling */
         .about-section {
@@ -492,38 +463,7 @@
     </style>
 </head>
 <body>
-    <header class="hero">
-        <nav class="navbar">
-            <div class="logo1">
-                <a href="#"><img src=".png" alt="Logo">M.Q.P</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="login.html">Join</a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </nav>
-        <div id="home">
-            <div class="hero-content">
-                <div class="text">
-                    <h1>Welcome To</h1>
-                    <h1 class="wrapper">Furniture World</h1>
-                    <p>A <span>Creative</span> Store<br> Bringing Comfort and Style to Your Home.</p>
-                    <a href="login.html" class="animated-button">Join</a>
-                </div>
-                <div class="graphic">
-                    <img src="4497.jpg" alt="Isometric Furniture Graphic">
-                </div>
-            </div>
-        </div>
-    </header>
+    <header class="hero"> <nav class="navbar"> <div class="logo1"> <a href="#"><img src=".png" alt="Logo">M.Q.P</a> </div> <ul class="nav-links"> <li><a href="login.html">Join</a></li> <li><a href="#home">Home</a></li> <li><a href="#about">About</a></li> <li><a href="#portfolio">Services</a></li> <li><a href="#contact">Contact</a></li> </ul> <div class="hamburger"> <div class="line"></div> <div class="line"></div> <div class="line"></div> </div> </nav> <div id="home"> <div class="hero-content"> <div class="text"> <h1 data-sr="fade-up">Welcome To</h1> <h1 class="wrapper" data-sr="fade-up">Music World</h1> <p data-sr="fade-up">A <span>Creative</span> Hub<br> Bringing Harmony and Rhythm to Your Life.</p> <a href="login.html" class="animated-button" data-sr="fade-up">Join</a> </div> <div class="graphic" data-sr="fade-up"> <img src="4497.jpg" alt="Music Graphic"> </div> </div> </div> </header>
 
     <section id="about" class="about-section">
       <h2>About Us</h2>
@@ -535,15 +475,15 @@
           <div class="slider-container">
               <!-- Slider 1 -->
               <div class="slider">
-                  <img src="slider1.jpg" alt="Choir Singing">
+                  <img src="ss.jpeg" alt="Choir Singing">
               </div>
               <!-- Slider 2 -->
               <div class="slider">
-                  <img src="slider2.jpg" alt="Church Ceremony">
+                  <img src="nnm.jpeg" alt="Church Ceremony">
               </div>
               <!-- Slider 3 -->
               <div class="slider">
-                  <img src="slider3.jpg" alt="Music Notes">
+                  <img src="nnmm.jpeg" alt="Music Notes">
               </div>
           </div>
           <div class="marquee-container">
@@ -651,6 +591,7 @@
           </text>
       </svg> | All Rights Reserved</p>
   </div>
+  <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -660,39 +601,31 @@
             hamburger.classList.toggle('active');
         });
 
-        
-        body.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('body::before');
-            cursor.style.left = e.pageX + 'px';
-            cursor.style.top = e.pageY + 'px';
-        });
+      // Scroll Reveal Animation
+// const scrollElements = document.querySelectorAll('.scroll-reveal');
 
-         // Cursor movement effect
-         document.addEventListener('mousemove', (e) => {
-            const cursor = document.body.querySelector('body::before');
-            if (cursor) {
-                cursor.style.left = e.pageX + 'px';
-                cursor.style.top = e.pageY + 'px';
-            }
-        });
+// const elementInView = (el, dividend = 1) => {
+//     const elementTop = el.getBoundingClientRect().top;
+//     const elementBottom = el.getBoundingClientRect().bottom;
+//     const elementHeight = el.getBoundingClientRect().height;
+//     return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend &&
+//            elementBottom >= (window.innerHeight || document.documentElement.clientHeight) / dividend;
+// };
 
-          // Scroll Reveal Effect
-          const revealElements = document.querySelectorAll('[data-reveal]');
+// const displayScrollElement = (el) => {
+//     el.classList.add('in-view');
+// };
 
-const revealOnScroll = () => {
-    revealElements.forEach((element) => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+// const handleScrollAnimation = () => {
+//     scrollElements.forEach((el) => {
+//         if (elementInView(el, 1.25)) {
+//             displayScrollElement(el);
+//         }
+//     });
+// };
 
-        if (elementTop < windowHeight - 50) {
-            element.classList.add('active');
-        }
-    });
-};
-
-document.addEventListener('scroll', revealOnScroll);
-
-
+// window.addEventListener('scroll', handleScrollAnimation);
+// window.addEventListener('load', handleScrollAnimation);
     </script>
 </body>
 </html>
