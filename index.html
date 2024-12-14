@@ -1,631 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Furniture Store Slider with an isometric design">
-    <title>Furniture Store</title>
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="HTTrack is an easy-to-use website mirror utility. It allows you to download a World Wide website from the Internet to a local directory,building recursively all structures, getting html, images, and other files from the server to your computer. Links are rebuiltrelatively so that you can freely browse to the local site (works with any browser). You can mirror several sites together so that you can jump from one toanother. You can, also, update an existing mirror site, or resume an interrupted download. The robot is fully configurable, with an integrated help" />
+	<meta name="keywords" content="httrack, HTTRACK, HTTrack, winhttrack, WINHTTRACK, WinHTTrack, offline browser, web mirror utility, aspirateur web, surf offline, web capture, www mirror utility, browse offline, local  site builder, website mirroring, aspirateur www, internet grabber, capture de site web, internet tool, hors connexion, unix, dos, windows 95, windows 98, solaris, ibm580, AIX 4.0, HTS, HTGet, web aspirator, web aspirateur, libre, GPL, GNU, free software" />
+	<title>Local index - HTTrack Website Copier</title>
+  <!-- Mirror and index made by HTTrack Website Copier/3.49-2 [XR&CO'2014] -->
+	<style type="text/css">
+	<!--
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #0a0a0a;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .logo1 a {
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #f5a623;
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.hamburger .line {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-}
-
-/* Scroll Reveal and Cursor Lighting */
-.scroll-reveal {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-}
-
-.animated-button {
-    background-color: #f5a623;
-    padding: 10px 20px;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.animated-button:hover {
-    background-color: #f39c12;
-}
-
-/* Planet Rotation Background */
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('planet.jpg');
-    background-size: cover;
-    background-position: center;
-    animation: planetRotation 60s linear infinite;
-    z-index: -1;
-}
-
-/* Animations */
-@keyframes planetRotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Responsive Styling */
-@media screen and (max-width: 768px) {
-    .navbar .nav-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* Text animation */
-.wrapper {
-    animation: wrapperText 3s ease-out forwards;
-}
-
-@keyframes wrapperText {
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Cursor lighting */
 body {
-    cursor: pointer;
-    position: relative;
+	margin: 0;  padding: 0;  margin-bottom: 15px;  margin-top: 8px;
+	background: #77b;
 }
+body, td {
+	font: 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	}
 
-body::after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #f5a623;
-    pointer-events: none;
-    transition: transform 0.1s ease, opacity 0.2s ease;
-}
+#subTitle {
+	background: #000;  color: #fff;  padding: 4px;  font-weight: bold; 
+	}
 
-body:hover::after {
-    transform: scale(1.5);
-    opacity: 0.7;
-}
+#siteNavigation a, #siteNavigation .current {
+	font-weight: bold;  color: #448;
+	}
+#siteNavigation a:link    { text-decoration: none; }
+#siteNavigation a:visited { text-decoration: none; }
 
-        /* About Section Styling */
-        .about-section {
-            position: relative;
-            padding: 50px 20px;
-            text-align: center;
-            overflow: hidden;
-        }
+#siteNavigation .current { background-color: #ccd; }
 
-        .about-section h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #ff5722;
-            font-weight: bold;
-        }
+#siteNavigation a:hover   { text-decoration: none;  background-color: #fff;  color: #000; }
+#siteNavigation a:active  { text-decoration: none;  background-color: #ccc; }
 
-        .about-section p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-            color: #ccc;
-        }
 
-        /* Slider Container */
-        .slider-container {
-            position: relative;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 50px 0;
-        }
+a:link    { text-decoration: underline;  color: #00f; }
+a:visited { text-decoration: underline;  color: #000; }
+a:hover   { text-decoration: underline;  color: #c00; }
+a:active  { text-decoration: underline; }
 
-        .slider {
-            position: relative;
-            width: 300px;
-            height: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            background: #333;
-            transform: perspective(1000px) rotateY(0deg);
-            transition: transform 0.5s ease;
-        }
+#pageContent {
+	clear: both;
+	border-bottom: 6px solid #000;
+	padding: 10px;  padding-top: 20px;
+	line-height: 1.65em;
+	background-image: url(backblue.gif);
+	background-repeat: no-repeat;
+	background-position: top right;
+	}
 
-        .slider:hover {
-            transform: perspective(1000px) rotateY(-20deg);
-        }
+#pageContent, #siteNavigation {
+	background-color: #ccd;
+	}
 
-        .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
 
-        /* Marquee Styling */
-        .marquee-container {
-            margin-top: 30px;
-        }
+.imgLeft  { float: left;   margin-right: 10px;  margin-bottom: 10px; }
+.imgRight { float: right;  margin-left: 10px;   margin-bottom: 10px; }
 
-        .marquee {
-            overflow: hidden;
-            position: relative;
-            white-space: nowrap;
-        }
+hr { height: 1px;  color: #000;  background-color: #000;  margin-bottom: 15px; }
 
-        .marquee span {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1.5rem;
-            color: #ff5722;
-            animation: marquee 10s linear infinite;
-        }
+h1 { margin: 0;  font-weight: bold;  font-size: 2em; }
+h2 { margin: 0;  font-weight: bold;  font-size: 1.6em; }
+h3 { margin: 0;  font-weight: bold;  font-size: 1.3em; }
+h4 { margin: 0;  font-weight: bold;  font-size: 1.18em; }
 
-        @keyframes marquee {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
-        
+.blak { background-color: #000; }
+.hide { display: none; }
+.tableWidth { min-width: 400px; }
 
-         /* Services Section */
-         #portfolio {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-            text-align: center;
-            color: #fff;
-        }
+.tblRegular       { border-collapse: collapse; }
+.tblRegular td    { padding: 6px;  background-image: url(fade.gif);  border: 2px solid #99c; }
+.tblHeaderColor, .tblHeaderColor td { background: #99c; }
+.tblNoBorder td   { border: 0; }
 
-        /* Background Video */
-        #portfolio video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(40%);
-        }
 
-        /* Services Text Styling */
-        .about-section {
-            position: relative;
-            padding: 100px 20px;
-        }
- /* Billboard Animation */
- @keyframes text-glow {
-            from {
-                text-shadow: 0 0 5px #ff5722, 0 0 10px #ff5722, 0 0 20px #ff5722;
-            }
-            to {
-                text-shadow: 0 0 10px #ff8a50, 0 0 20px #ff8a50, 0 0 30px #ff8a50;
-            }
-        }
+// -->
+</style>
 
-            /* Contact Section */
-            #contact {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #111;
-        }
-
-        #contact h2 {
-            font-size: 2.5rem;
-            color: #ff5722;
-            margin-bottom: 10px;
-        }
-
-        #contact p {
-            color: #ccc;
-            margin-bottom: 30px;
-            font-size: 1.2rem;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .column {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .column img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .text {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .text h1 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .text p {
-            margin: 10px 0;
-            font-size: 1.2rem;
-        }
-
-        .text a {
-            color: #ff5722;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .animated-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff5722;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .animated-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        .footer {
-            padding: 50px 20px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .container48 {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .footer-content > div {
-            flex: 1;
-            min-width: 200px;
-            max-width: 300px;
-            text-align: left;
-        }
-
-        .footer-content h2 {
-            color: #ff5722;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-content li {
-            margin-bottom: 10px;
-        }
-
-        .footer-content a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-content a:hover {
-            color: #ff5722;
-        }
-
-        .animated-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff5722;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .animated-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer p {
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #ccc;
-        }
-
-        .footer p svg text a {
-            font-weight: bold;
-        }
-
-    </style>
 </head>
-<body>
-    <header class="hero"> <nav class="navbar"> <div class="logo1"> <a href="#"><img src=".png" alt="Logo">M.Q.P</a> </div> <ul class="nav-links"> <li><a href="login.html">Join</a></li> <li><a href="#home">Home</a></li> <li><a href="#about">About</a></li> <li><a href="#portfolio">Services</a></li> <li><a href="#contact">Contact</a></li> </ul> <div class="hamburger"> <div class="line"></div> <div class="line"></div> <div class="line"></div> </div> </nav> <div id="home"> <div class="hero-content"> <div class="text"> <h1 data-sr="fade-up">Welcome To</h1> <h1 class="wrapper" data-sr="fade-up">Music World</h1> <p data-sr="fade-up">A <span>Creative</span> Hub<br> Bringing Harmony and Rhythm to Your Life.</p> <a href="login.html" class="animated-button" data-sr="fade-up">Join</a> </div> <div class="graphic" data-sr="fade-up"> <img src="4497.jpg" alt="Music Graphic"> </div> </div> </div> </header>
 
-    <section id="about" class="about-section">
-      <h2>About Us</h2>
-      <div class="container">
-          <div class="about-content">
-              <p>Welcome to our website! We are <b>MARY QUEEN OF PEACE CHOIR</b>, assisting in liturgical celebrations through the power of music.</p>
-              <p>Come and join us to sing praises unto the Lord!</p>
-          </div>
-          <div class="slider-container">
-              <!-- Slider 1 -->
-              <div class="slider">
-                  <img src="ss.jpeg" alt="Choir Singing">
-              </div>
-              <!-- Slider 2 -->
-              <div class="slider">
-                  <img src="nnm.jpeg" alt="Church Ceremony">
-              </div>
-              <!-- Slider 3 -->
-              <div class="slider">
-                  <img src="nnmm.jpeg" alt="Music Notes">
-              </div>
-          </div>
-          <div class="marquee-container">
-              <div class="marquee">
-                  <span>Sing praises unto the Lord • Join Mary Queen of Peace Choir • Be part of our journey •</span>
-              </div>
-          </div>
-      </div>
-  </section>
+<table width="76%" border="0" align="center" cellspacing="0" cellpadding="3" class="tableWidth">
+	<tr>
+	<td id="subTitle">HTTrack Website Copier - Open Source offline browser</td>
+	</tr>
+</table>
+<table width="76%" border="0" align="center" cellspacing="0" cellpadding="0" class="tableWidth">
+<tr class="blak">
+<td>
+	<table width="100%" border="0" align="center" cellspacing="1" cellpadding="0">
+	<tr>
+	<td colspan="6"> 
+		<table width="100%" border="0" align="center" cellspacing="0" cellpadding="10">
+		<tr> 
+		<td id="pageContent"> 
+<!-- ==================== End prologue ==================== -->
 
-  <section id="portfolio">
-    <video src="mass.mp4" autoplay loop muted></video>
-    <div class="about-section" data-reveal>
-        <h1><b><a href="maryqueenofpeace.html">
-            <svg>
-                <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-                    MARY <br> QUEEN OF PEACE
-                </text>
-            </svg>
-        </a></b></h1>
-        <h2><b>Our Services</b></h2>
-        <p>We sing praises unto the Lord with passion and dedication.</p>
-        <p>Providing music for all liturgical celebrations and special events.</p>
-        <p>Join us and make a joyful noise unto the Lord!</p>
-        <a href="login.html" class="animated-button">View More</a>
-    </div>
-</section>
+	<meta name="generator" content="HTTrack Website Copier/3.x">
+	<TITLE>Local index - HTTrack</TITLE>
+</HEAD>
+<BODY>
+<H1 ALIGN=Center>Index of locally available sites:</H1>
+	<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="0">
+		<TR>
+			<TD BACKGROUND="fade.gif">
+				&middot;
+					<A HREF="10web-site.ai/400/thankful-werewolf/index2e17.html">
+						10web-site.ai/400/thankful-werewolf/index2e17.html
+					</A>		
+			</TD>
+		</TR>
+	</TABLE>
+	<BR>
+	<BR>
+	<BR>
+  	<H6 ALIGN="RIGHT">
+	<I>Mirror and index made by HTTrack Website Copier [XR&amp;CO'2008]</I>
+	</H6>
+	<!-- Mirror and index made by HTTrack Website Copier/3.49-2 [XR&CO'2014] -->
+	<!-- Thanks for using HTTrack Website Copier! -->
+	<meta HTTP-EQUIV="Refresh" CONTENT="0; URL=10web-site.ai/400/thankful-werewolf/index2e17.html">
 
-<!-- Contact Us Section -->
-<div id="contact">
-  <div style="text-align:center" data-reveal>
-      <h2>Contact Us</h2>
-      <p>Leave us a message</p>
-  </div>
-  <div class="row">
-      <!-- Location Column -->
-      <div class="column" data-reveal>
-          <img src="4497.jpg" alt="Location Image">
-      </div>
-      <!-- Contact Information Column -->
-      <div class="column" data-reveal>
-          <div class="text">
-              <h1>CONTACT US</h1>
-              <p><span style="color: #ff5722;">MARY</span> QUEEN OF PEACE</p>
-              <p>A <span>CREATIVE</span> society passionate about singing to the Lord.</p>
-              <p>Let's sing praises unto the Lord!</p>
-              <p><a href="mailto:maryqueenofpeace@gmail.com">maryqueenofpeace@gmail.com</a></p>
-              <p><a href="tel:+2348045248175">+777 804 524 8175</a></p>
-              <p><a href="tel:+905338508988">+999 338 508 988</a></p>
-              <p> Abaranje Road, Ikotun Lagos<br> Olafarm Bustop</p>
-              <a href="#portfolio" class="animated-button">View Services</a>
-          </div>
-      </div>
-  </div>
-</div>
 
-<section class="footer" style="background-color: #000;">
-  <div class="container48">
-      <div class="footer-content">
-          <!-- Information Section -->
-          <div class="info" data-reveal>
-              <h2>INFORMATION</h2>
-              <ul>
-                  <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                  <li><a href="terms-of-use.html">Terms of Use</a></li>
-                  <li>
-                      Contact: <a href="tel:+2348045248175">+234 804 524 8175</a><br>
-                      Contact: <a href="tel:+905338508888">+999 338 508 988</a><br>
-                      Email: <a href="mailto:maryqueenofpeace@gmail.com">maryqueenofpeace@gmail.com</a>
-                  </li>
-              </ul>
-          </div>
+<!-- ==================== Start epilogue ==================== -->
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
 
-          <!-- Navigation Section -->
-          <div class="navigation" data-reveal>
-              <h2>Navigation</h2>
-              <ul>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#portfolio">Services</a></li>
-                  <li><a href="#contact">Contact</a></li>
-              </ul>
-          </div>
+<table width="76%" border="0" align="center" valign="bottom" cellspacing="0" cellpadding="0">
+	<tr>
+	<td id="footer"><small>&copy; 2008 Xavier Roche & other contributors - Web Design: Leto Kauler.</small></td>
+	</tr>
+</table>
 
-          <!-- Social Links Section -->
-          <div class="social" data-reveal>
-              <h2>Connect</h2>
-              <ul>
-                  <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
-                  <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
-                  <li><a href="https://www.linkedin.com/in/maryanthony-tochukwu-a447" target="_blank">LinkedIn</a></li>
-              </ul>
-          </div>
-
-          <!-- Services Section -->
-          <div class="shop" data-reveal>
-              <h2>SERVICES</h2>
-              <a href="login.html" class="animated-button">Sign-up/Sign-in</a>
-          </div>
-      </div>
-
-      <!-- Footer Copy -->
-      <p>&copy; <svg>
-          <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-            <a href="#home" style="color: #ff5722; text-decoration: none;">MARY</a>
-          </text>
-      </svg> | All Rights Reserved</p>
-  </div>
-  <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            hamburger.classList.toggle('active');
-        });
-
-      // Scroll Reveal Animation
-// const scrollElements = document.querySelectorAll('.scroll-reveal');
-
-// const elementInView = (el, dividend = 1) => {
-//     const elementTop = el.getBoundingClientRect().top;
-//     const elementBottom = el.getBoundingClientRect().bottom;
-//     const elementHeight = el.getBoundingClientRect().height;
-//     return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend &&
-//            elementBottom >= (window.innerHeight || document.documentElement.clientHeight) / dividend;
-// };
-
-// const displayScrollElement = (el) => {
-//     el.classList.add('in-view');
-// };
-
-// const handleScrollAnimation = () => {
-//     scrollElements.forEach((el) => {
-//         if (elementInView(el, 1.25)) {
-//             displayScrollElement(el);
-//         }
-//     });
-// };
-
-// window.addEventListener('scroll', handleScrollAnimation);
-// window.addEventListener('load', handleScrollAnimation);
-    </script>
 </body>
+
 </html>
+
+
